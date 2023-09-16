@@ -16,7 +16,7 @@
 }
 
 .photo-list__image {
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 8px 8px; //update border radius and add 8px to bottom left and right
   user-select: none;
   width: 300px;
   height: 200px;
