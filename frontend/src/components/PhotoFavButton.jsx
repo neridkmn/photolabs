@@ -3,8 +3,10 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
+function PhotoFavButton(props) {
 
+  const { addToFavPhotos, removeFromFavPhoto } = props; 
+  
   const [selected, setSelected] = useState(false); //Create selected state (Boolean)
 
   const handleOnClick = () => { // function to toggle selected state
