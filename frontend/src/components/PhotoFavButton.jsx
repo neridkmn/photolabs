@@ -5,12 +5,20 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  const { addToFavPhotos, removeFromFavPhoto } = props; 
+  const { addToFavPhotos, removeFromFavPhotos, photo } = props; // get the photo object from the parent.
   
   const [selected, setSelected] = useState(false); //Create selected state (Boolean)
 
   const handleOnClick = () => { // function to toggle selected state
+
+    if (selected) {
+      removeFromFavPhotos(photo); // if the selected state is true, that means the photo was already favorited before clicking, and therefore neeeds to be removed from favorites
+    } else {
+      addToFavPhotos(photo); // if the selected state is false, the photo has not been favorited yet. therefore, add the photo to the favorited photos.
+    }
+
     setSelected(!selected);
+
   };
 
   //Add selected as a prop to FavIcon component and onClick to its div tag.
