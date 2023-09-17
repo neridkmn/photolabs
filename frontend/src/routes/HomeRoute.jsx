@@ -12,7 +12,7 @@ const HomeRoute = (props) => {
     setFavPhotos([...favPhotos, photoToAdd]) // Take existing favorite photos, and add the new favorited photo to the array.
   }
   const removeFromFavPhotos = (photoToRemove) => {
-    setFavPhotos(photos.filter((item) => item.id !== photoToRemove.id)) // filter out the photo that was unfavorited.
+    setFavPhotos(favPhotos.filter((item) => item.id !== photoToRemove.id)) // filter out the photo that was unfavorited.
   }
 
   return (
