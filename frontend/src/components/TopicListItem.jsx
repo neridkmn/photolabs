@@ -13,7 +13,7 @@ const TopicListItem = (props) => {
   const { slug, title } = props; // Destructing props.
   return (
     <div className="topic-list__item">
-      {/* Insert React */}
+      {title}
     </div>
   );
 };
