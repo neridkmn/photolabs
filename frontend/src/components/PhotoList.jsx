@@ -60,9 +60,9 @@ const sampleDataForPhotoList = [
 const PhotoList = () => {
   return (
     <ul className="photo-list">
-      {sampleDataForPhotoList.map((item, index) => {
+      {sampleDataForPhotoList.map((item) => {
         return <PhotoListItem 
-            key={index} 
+            key={item.id} 
             location={item.location}
             imageSource={item.urls.regular}
             username={item.user.name}
