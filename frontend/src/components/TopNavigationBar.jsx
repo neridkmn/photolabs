@@ -4,7 +4,8 @@ import TopicList from './TopicList';
 import '../styles/TopNavigationBar.scss'
 import FavBadge from './FavBadge';
 
-const TopNavigation = () => {
+const TopNavigation = (props) => {
+  const { topics } = props;
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
@@ -13,7 +14,7 @@ const TopNavigation = () => {
         display: "flex",
         alignItems: "center"
         }}>
-          <TopicList /> 
+          <TopicList topics={topics}/> 
           <FavBadge isFavPhotoExist={true}/>
       </div>
     </div>
