@@ -8,8 +8,14 @@ const TopNavigation = () => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList /> 
-      <FavBadge isFavPhotoExist={true}/>
+      <div style={{
+        marginRight: "24px", 
+        display: "flex",
+        alignItems: "center"
+        }}>
+          <TopicList /> 
+          <FavBadge isFavPhotoExist={true}/>
+      </div>
     </div>
   )
 }
