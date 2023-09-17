@@ -17,7 +17,7 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics}/>
+      <TopNavigationBar topics={topics} isFavPhotoExist={favPhotos.length > 0 ? true: false}/> {/** determine if any photo is favorited and pass down to the top nagivation bar. */}
       <PhotoList photos={photos} addToFavPhotos={addToFavPhotos} removeFromFavPhotos={removeFromFavPhotos}/>
     </div>
   );
