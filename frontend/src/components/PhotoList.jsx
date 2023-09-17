@@ -12,10 +12,7 @@ const PhotoList = (props) => {
       {photos.map((item) => {
         return <PhotoListItem 
             key={item.id} 
-            location={item.location}
-            imageSource={item.urls.regular}
-            username={item.user.name}
-            profile={item.user.profile}
+            photo={item} // pass down the entire photo object as a prop
             addToFavPhotos={addToFavPhotos} 
             removeFromFavPhotos={removeFromFavPhotos}
           />
