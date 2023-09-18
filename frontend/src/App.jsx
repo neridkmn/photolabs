@@ -15,7 +15,7 @@ const App = () => {
 
     return (
     <div className="App">
-     <HomeRoute photos={photos} topics={topics} />
+     <HomeRoute photos={photos} topics={topics} setShowModal={setShowModal} />
      {showModal && <PhotoDetailsModal />} {/**conditional rendering to show modal */}
     </div>
   );
