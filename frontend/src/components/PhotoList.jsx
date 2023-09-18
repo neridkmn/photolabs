@@ -5,7 +5,7 @@ import PhotoListItem from "./PhotoListItem";
 
 
 const PhotoList = (props) => {
-  const { photos, addToFavPhotos, removeFromFavPhotos } = props;
+  const { photos, addToFavPhotos, removeFromFavPhotos, setShowModal } = props;
 
   return (
     <ul className="photo-list">
@@ -15,6 +15,7 @@ const PhotoList = (props) => {
             photo={item} // pass down the entire photo object as a prop
             addToFavPhotos={addToFavPhotos} 
             removeFromFavPhotos={removeFromFavPhotos}
+            setShowModal={setShowModal}
           />
       })}
     </ul>
