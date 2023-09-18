@@ -5,7 +5,8 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
 
-  const { photo, addToFavPhotos, removeFromFavPhotos } = props; // get the entire photo object as a prop.
+  const { photo, addToFavPhotos, removeFromFavPhotos, setShowModal } = props; // get the entire photo object as a prop.
+  const handleOnClick = () => {setShowModal(true)};
 
   return(
     <div className="photo-list__item">
@@ -14,7 +15,7 @@ const PhotoListItem = (props) => {
         removeFromFavPhotos={removeFromFavPhotos} 
         photo={photo} // pass down the photo object as prop
       />
-      <img className="photo-list__image" src={photo.urls.regular} /> {/** use photo object's fields */}
+      <img className="photo-list__image" src={photo.urls.regular} onClick={handleOnClick}/> {/** use photo object's fields */}
       <div className="photo-list__user-details">
        <img className="photo-list__user-profile" src={photo.user.profile} /> {/** use photo object's fields */}
        <div className="photo-list__user-info">
