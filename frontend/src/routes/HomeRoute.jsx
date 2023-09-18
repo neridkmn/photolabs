@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const { photos, topics, setShowModal } = props; 
+  const { photos, topics, setShowModal, setSelectedPhoto } = props; 
   const [ favPhotos, setFavPhotos ] = useState([]);
 
   const addToFavPhotos = (photoToAdd) => { 
@@ -22,6 +22,7 @@ const HomeRoute = (props) => {
       addToFavPhotos={addToFavPhotos} 
       removeFromFavPhotos={removeFromFavPhotos}
       setShowModal={setShowModal}
+      setSelectedPhoto={setSelectedPhoto}
       />
     </div>
   );
