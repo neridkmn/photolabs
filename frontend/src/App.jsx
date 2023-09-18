@@ -12,6 +12,7 @@ import './App.scss';
 const App = () => {
 
     const [showModal, setShowModal] = useState(false); //Create a state to determine to show the modal or not. 
+    const [selectedPhoto, setSelectedPhoto] = useState({}); //Create a state to show selected photo details in the console. 
 
     return (
     <div className="App">
