@@ -17,12 +17,12 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" onClick={handleOnClose} />
       </button>
       <div className='photo-details-modal__images'>
-        {/* <PhotoFavButton 
+        <PhotoFavButton 
         addToFavPhotos={addToFavPhotos} 
         removeFromFavPhotos={removeFromFavPhotos} 
         photo={selectedPhoto} // pass down the photo object as prop
         favPhotos={favPhotos}
-      /> */}
+      />
 
 
         <img className="photo-details-modal__image" src={selectedPhoto.urls.full} />
