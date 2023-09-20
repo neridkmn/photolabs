@@ -5,15 +5,7 @@ import React, { useState } from 'react';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const { photos, topics, setShowModal, setSelectedPhoto } = props; 
-  const [ favPhotos, setFavPhotos ] = useState([]);
-
-  const addToFavPhotos = (photoToAdd) => { 
-    setFavPhotos([...favPhotos, photoToAdd]) // Take existing favorite photos, and add the new favorited photo to the array.
-  }
-  const removeFromFavPhotos = (photoToRemove) => {
-    setFavPhotos(favPhotos.filter((item) => item.id !== photoToRemove.id)) // filter out the photo that was unfavorited.
-  }
+  const { photos, topics, setShowModal, setSelectedPhoto, favPhotos, addToFavPhotos, removeFromFavPhotos } = props; 
 
   return (
     <div className="home-route">
@@ -23,6 +15,7 @@ const HomeRoute = (props) => {
       removeFromFavPhotos={removeFromFavPhotos}
       setShowModal={setShowModal}
       setSelectedPhoto={setSelectedPhoto}
+      favPhotos={favPhotos}
       />
     </div>
   );
