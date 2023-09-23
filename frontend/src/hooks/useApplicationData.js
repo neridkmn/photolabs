@@ -7,12 +7,12 @@ const ACTIONS = {
   SET_SELECTED_PHOTO: 'SET_SELECTED_PHOTO',
   ADD_TO_FAV_PHOTOS: 'ADD_TO_FAV_PHOTOS',
   REMOVE_FROM_FAV_PHOTOS: 'REMOVE_FROM_FAV_PHOTOS',
-  FETCH_PHOTOS: "FETCH_PHOTOS",
+  SET_PHOTO_DATA: "SET_PHOTO_DATA",
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case ACTIONS.FETCH_PHOTOS:
+    case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state,
         photoData: action.payload // Set the data that was retrieved from the API to photoData inside the state.
@@ -59,7 +59,7 @@ const useApplicationData = () => {
   useEffect(() => {
     fetch('/api/photos')
       .then(res => res.json())
-      .then(data => dispatch({ type: ACTIONS.FETCH_PHOTOS, payload: data })); // Use dispatch to set the photoData in the state.
+      .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })); // Use dispatch to set the photoData in the state.
   }, []);
 
 
