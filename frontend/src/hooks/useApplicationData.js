@@ -1,6 +1,5 @@
-import { useReducer } from 'react';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+import { useReducer, useEffect } from 'react';
+
 
 const ACTIONS = {
   SHOW_MODAL: 'SHOW_MODAL',
@@ -41,6 +40,8 @@ function reducer(state, action) {
 const useApplicationData = () => {
 
   const [state, dispatch] = useReducer(reducer, {
+    photoData: [],
+    topicData: [],
     showModal: false,
     selectedPhoto: {},
     favPhotos: [],
@@ -62,10 +63,10 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.REMOVE_FROM_FAV_PHOTOS, payload: photo})
   }
 
-  const data = {
-    topics,
-    photos
-  }
+  // const data = {
+  //   topics,
+  //   photos
+  // }
 
   return {
     state,
