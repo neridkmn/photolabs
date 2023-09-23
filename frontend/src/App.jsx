@@ -19,7 +19,7 @@ const App = () => {
     return (
     <div className="App">
      <HomeRoute 
-      photos={data.photos} 
+      photos={state.photoData} /** Instead of getting the photod from the mock data, App.jsx now gets the photoData from the application state */
       topics={data.topics} 
       setShowModal={setShowModal} 
       setSelectedPhoto={setSelectedPhoto} 
