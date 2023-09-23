@@ -8,12 +8,9 @@ function PhotoFavButton(props) {
   const { addToFavPhotos, removeFromFavPhotos, photo, favPhotos } = props; // get the photo object from the parent.
 
 
-  // const [selected, setSelected] = useState(favPhotos.includes(photo)); //Create selected state (Boolean)
 
-  const selected = favPhotos.includes(photo);
+  const selected = favPhotos.map(element => element.id).includes(photo.id); //to check if the current photo is one of the favorites.
 
-
-  // const selected = favPhotos.includes(photo);
 
   const handleOnClick = () => { // function to toggle selected state
 
