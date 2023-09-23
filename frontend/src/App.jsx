@@ -7,7 +7,6 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
-    data,
     state,
     setShowModal,
     setSelectedPhoto,
@@ -20,7 +19,7 @@ const App = () => {
     <div className="App">
      <HomeRoute 
       photos={state.photoData} /** Instead of getting the photod from the mock data, App.jsx now gets the photoData from the application state */
-      topics={data.topics} 
+      topics={state.topicData} /**App.jsx now uses the topic data from the state instead of the mock data */
       setShowModal={setShowModal} 
       setSelectedPhoto={setSelectedPhoto} 
       addToFavPhotos={addToFavPhotos}

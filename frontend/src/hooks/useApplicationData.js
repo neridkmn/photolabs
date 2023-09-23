@@ -1,5 +1,4 @@
 import { useReducer, useEffect } from 'react';
-import topics from 'mocks/topics';
 
 
 const ACTIONS = {
@@ -8,6 +7,7 @@ const ACTIONS = {
   ADD_TO_FAV_PHOTOS: 'ADD_TO_FAV_PHOTOS',
   REMOVE_FROM_FAV_PHOTOS: 'REMOVE_FROM_FAV_PHOTOS',
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
 };
 
 function reducer(state, action) {
@@ -16,6 +16,11 @@ function reducer(state, action) {
       return {
         ...state,
         photoData: action.payload // Set the data that was retrieved from the API to photoData inside the state.
+      };
+    case ACTIONS.SET_TOPIC_DATA: // Set the data that was retrieved from the API to topicData inside the state.
+      return {
+        ...state,
+        topicData: action.payload
       };
     case ACTIONS.SHOW_MODAL:
       return {
@@ -62,6 +67,11 @@ const useApplicationData = () => {
       .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })); // Use dispatch to set the photoData in the state.
   }, []);
 
+  useEffect(() => {
+    fetch('/api/topics')
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })); // Use dispatch to set the topicData in the state.
+  }, []);
 
   // Dispatch functions
   const setShowModal = (payload) => {
@@ -80,13 +90,9 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.REMOVE_FROM_FAV_PHOTOS, payload: photo });
   };
 
-  const data = { // Re-add mock data because otherwise the app crashes as App.js expects mock data from this function to pass down to components.
-    topics
-  };
 
   return {
     state,
-    data,
     setShowModal,
     setSelectedPhoto,
     addToFavPhotos,
