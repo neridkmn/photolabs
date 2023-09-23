@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from 'react';
-
+import topics from 'mocks/topics';
+import photos from 'mocks/photos';
 
 const ACTIONS = {
   SHOW_MODAL: 'SHOW_MODAL',
@@ -39,6 +40,7 @@ function reducer(state, action) {
 
 const useApplicationData = () => {
 
+  // Setting initial state
   const [state, dispatch] = useReducer(reducer, {
     photoData: [],
     topicData: [],
@@ -47,6 +49,15 @@ const useApplicationData = () => {
     favPhotos: [],
   });
 
+  // Getting data from the server
+  useEffect(() => {
+    fetch('/api/photos')
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }, [])
+
+
+  // Dispatch functions
   const setShowModal = (payload) => {
     dispatch({ type: ACTIONS.SHOW_MODAL, payload: payload })
   }
@@ -63,10 +74,10 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.REMOVE_FROM_FAV_PHOTOS, payload: photo})
   }
 
-  // const data = {
-  //   topics,
-  //   photos
-  // }
+  const data = { // Re-add mock data because otherwise the app crashes as App.js expects mock data from this function to pass down to components.
+    photos,
+    topics
+  }
 
   return {
     state,
