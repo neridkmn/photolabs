@@ -5,7 +5,7 @@ import '../styles/TopNavigationBar.scss'
 import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
-  const { topics, isFavPhotoExist } = props; // extract isFavPhotoExist from the props.
+  const { topics, isFavPhotoExist, setPhotosByTopic } = props; // extract isFavPhotoExist from the props.
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
@@ -14,7 +14,7 @@ const TopNavigation = (props) => {
         display: "flex",
         alignItems: "center"
         }}>
-          <TopicList topics={topics}/> 
+          <TopicList topics={topics} setPhotosByTopic={setPhotosByTopic}/> {/** Pass down the setPhotosByTopic function to the child component */}
           <FavBadge isFavPhotoExist={isFavPhotoExist}/> {/** pass down isFavPhotoExist to the FavBadge */}
       </div>
     </div>

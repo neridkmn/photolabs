@@ -5,15 +5,15 @@ import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
 
-  const { topics } = props;
+  const { topics, setPhotosByTopic } = props;
 
   return (
     <div className="top-nav-bar__topic-list">
      {topics.map((item) => {
       return <TopicListItem 
       key={item.id}
-      slug={item.slug}
-      title={item.title}
+      item={item} /** Instead of passing down individual properties of a topic, pass down the entire topic object */
+      setPhotosByTopic={setPhotosByTopic} /** Pass down the setPhotosByTopic function to the child component */
       />
      })}
     </div>

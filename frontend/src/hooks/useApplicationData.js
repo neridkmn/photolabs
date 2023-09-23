@@ -8,7 +8,9 @@ const ACTIONS = {
   REMOVE_FROM_FAV_PHOTOS: 'REMOVE_FROM_FAV_PHOTOS',
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC',
 };
+
 
 function reducer(state, action) {
   switch (action.type) {
@@ -22,6 +24,11 @@ function reducer(state, action) {
         ...state,
         topicData: action.payload
       };
+    case ACTIONS.SET_PHOTOS_BY_TOPIC: // Set the photoData based on the topic selected by the user
+      return {
+        ...state,
+        photoData: action.payload
+      }
     case ACTIONS.SHOW_MODAL:
       return {
         ...state,
@@ -90,6 +97,12 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.REMOVE_FROM_FAV_PHOTOS, payload: photo });
   };
 
+  const setPhotosByTopic = (topicId) => { // Retrieve the photos based on a specified topic id, and dispatch it to reducer to use the data as the new photoData
+    fetch(`/api/topics/photos/${topicId}`)
+      .then(res => res.json())
+      .then(data => dispatch({type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: data}))
+  }
+
 
   return {
     state,
@@ -97,6 +110,7 @@ const useApplicationData = () => {
     setSelectedPhoto,
     addToFavPhotos,
     removeFromFavPhotos,
+    setPhotosByTopic,
   };
 };
 
