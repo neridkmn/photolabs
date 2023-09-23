@@ -9,14 +9,8 @@ const TopNavigation = (props) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <div style={{
-        marginRight: "24px", 
-        display: "flex",
-        alignItems: "center"
-        }}>
-          <TopicList topics={topics} setPhotosByTopic={setPhotosByTopic}/> {/** Pass down the setPhotosByTopic function to the child component */}
-          <FavBadge isFavPhotoExist={isFavPhotoExist}/> {/** pass down isFavPhotoExist to the FavBadge */}
-      </div>
+      <TopicList topics={topics} setPhotosByTopic={setPhotosByTopic}/> {/** Pass down the setPhotosByTopic function to the child component */}
+      <FavBadge isFavPhotoExist={isFavPhotoExist}/> {/** pass down isFavPhotoExist to the FavBadge */}
     </div>
   )
 }
