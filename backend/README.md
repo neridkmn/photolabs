@@ -6,7 +6,7 @@ Install dependencies with `npm install`.
 
 ## Creating The DB
 
-Use the `psql -U labber` command to login to the PostgreSQL server with the username `labber` and the password `labber`. This command **MUST** be run in a vagrant terminal, we are using the PostgreSQL installation provided in the vagrant environment. M1/M2 and WSL2 users can execute this command in their terminal.
+Use the `psql -U [username]` command to login to the PostgreSQL server with the username `[username]` and the password `labber`. This command **MUST** be run in a vagrant terminal, we are using the PostgreSQL installation provided in the vagrant environment. M1/M2 and WSL2 users can execute this command in their terminal.
 
 Create a database with the command `CREATE DATABASE photolabs_development;`.
 
@@ -22,7 +22,7 @@ PGPORT=5432
 
 ## Seeding
 
-Run a the development server with `npm start` in the Host environment. We are only using vagrant for `psql` this week.
+Run the development server with `npm start` in the Host environment. We are only using vagrant for `psql` this week.
 
 Both of these achieve the same result.
 
@@ -36,7 +36,7 @@ Running the server normally
 npm start
 ```
 
-Running the server so it returns an error when saving/deleting for testing the client's error handling capabilities
+Running the server so it returns an error when saving/deleting for testing the client's error-handling capabilities
 ```sh
 npm run error
 ```
