@@ -2,7 +2,7 @@
 PhotoLabs is a React-based single-page application (SPA) that allows users to view photos in different contexts. A pre-existing API is used to build a frontend user experience for users to interact with photos!
 
 # Getting Started
-* [Fork an Clone](https://github.com/neridkmn/photolabs) onto your local device.
+* [Fork and Clone](https://github.com/neridkmn/photolabs) onto your local device.
 * Navigate to `photolabs/backend` directory
 * Follow the README to set up the backend server and the database.
 * Navigate to `photolabs/frontend` directory
