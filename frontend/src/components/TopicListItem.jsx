@@ -13,8 +13,8 @@ const TopicListItem = (props) => {
   const { item, setPhotosByTopic } = props; // Destructing props.
 
   const handleOnClick = () => { // When clicked, calls the setPhotosByTopic function with the current topic id, which should result in a fetch request in the useApplicationData, and photos related to the current topic should be retrieved.
-    setPhotosByTopic(item.id)
-  }
+    setPhotosByTopic(item.id);
+  };
 
   return (
     <div className="topic-list__item" onClick={handleOnClick}>

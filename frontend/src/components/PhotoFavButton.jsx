@@ -19,14 +19,14 @@ function PhotoFavButton(props) {
     } else {
       addToFavPhotos(photo); // if the selected state is false, the photo has not been favorited yet. therefore, add the photo to the favorited photos.
     }
-    
+
   };
 
   //Add selected as a prop to FavIcon component and onClick to its div tag.
   return (
     <div className="photo-list__fav-icon" onClick={handleOnClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={selected}/> 
+        <FavIcon selected={selected} />
       </div>
     </div>
   );

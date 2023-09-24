@@ -10,15 +10,15 @@ const PhotoList = (props) => {
   return (
     <ul className="photo-list">
       {photos.map((item) => {
-        return <PhotoListItem 
-            key={item.id} 
-            photo={item} // pass down the entire photo object as a prop
-            addToFavPhotos={addToFavPhotos} 
-            removeFromFavPhotos={removeFromFavPhotos}
-            setShowModal={setShowModal}
-            setSelectedPhoto={setSelectedPhoto}
-            favPhotos={favPhotos}
-          />
+        return <PhotoListItem
+          key={item.id}
+          photo={item} // pass down the entire photo object as a prop
+          addToFavPhotos={addToFavPhotos}
+          removeFromFavPhotos={removeFromFavPhotos}
+          setShowModal={setShowModal}
+          setSelectedPhoto={setSelectedPhoto}
+          favPhotos={favPhotos}
+        />;
       })}
     </ul>
   );

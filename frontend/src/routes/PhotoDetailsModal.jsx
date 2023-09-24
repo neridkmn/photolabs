@@ -17,12 +17,12 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" onClick={handleOnClose} />
       </button>
       <div className='photo-details-modal__images'>
-        <PhotoFavButton 
-        addToFavPhotos={addToFavPhotos} 
-        removeFromFavPhotos={removeFromFavPhotos} 
-        photo={selectedPhoto} // pass down the photo object as prop
-        favPhotos={favPhotos}
-      />
+        <PhotoFavButton
+          addToFavPhotos={addToFavPhotos}
+          removeFromFavPhotos={removeFromFavPhotos}
+          photo={selectedPhoto} // pass down the photo object as prop
+          favPhotos={favPhotos}
+        />
 
 
         <img className="photo-details-modal__image" src={selectedPhoto.urls.full} />
@@ -32,15 +32,15 @@ const PhotoDetailsModal = (props) => {
           <img className='photo-details-modal__photographer-profile' src={selectedPhoto.user.profile} />
           <div className='photo-details-modal__photographer-info' >
             {selectedPhoto.user.name}
-         
-          <div className='photo-details-modal__photographer-location'>
-            {selectedPhoto.location.city}, {selectedPhoto.location.country}
-          </div>
+
+            <div className='photo-details-modal__photographer-location'>
+              {selectedPhoto.location.city}, {selectedPhoto.location.country}
+            </div>
           </div>
         </div>
         <div className='photo-details-modal__header'>Similar Photos</div>
         <div >
-        {<PhotoList favPhotos={[]} photos={Object.values(selectedPhoto.similar_photos)}/>}
+          {<PhotoList favPhotos={[]} photos={Object.values(selectedPhoto.similar_photos)} />}
 
         </div>
       </div>

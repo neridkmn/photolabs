@@ -28,7 +28,7 @@ function reducer(state, action) {
       return {
         ...state,
         photoData: action.payload
-      }
+      };
     case ACTIONS.SHOW_MODAL:
       return {
         ...state,
@@ -100,8 +100,8 @@ const useApplicationData = () => {
   const setPhotosByTopic = (topicId) => { // Retrieve the photos based on a specified topic id, and dispatch it to reducer to use the data as the new photoData
     fetch(`/api/topics/photos/${topicId}`)
       .then(res => res.json())
-      .then(data => dispatch({type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: data}))
-  }
+      .then(data => dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: data }));
+  };
 
 
   return {

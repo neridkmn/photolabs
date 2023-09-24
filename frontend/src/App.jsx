@@ -14,28 +14,28 @@ const App = () => {
     removeFromFavPhotos,
     setPhotosByTopic,
   } = useApplicationData();
-  
 
-    return (
+
+  return (
     <div className="App">
-     <HomeRoute 
-      photos={state.photoData} /** Instead of getting the photod from the mock data, App.jsx now gets the photoData from the application state */
-      topics={state.topicData} /** App.jsx now uses the topic data from the state instead of the mock data */
-      setShowModal={setShowModal} 
-      setSelectedPhoto={setSelectedPhoto} 
-      addToFavPhotos={addToFavPhotos}
-      removeFromFavPhotos={removeFromFavPhotos}
-      favPhotos={state.favPhotos}
-      setPhotosByTopic={setPhotosByTopic} // Pass down the setPhotosByTopic function to the child component
+      <HomeRoute
+        photos={state.photoData} /** Instead of getting the photos from the mock data, App.jsx now gets the photoData from the application state */
+        topics={state.topicData} /** App.jsx now uses the topic data from the state instead of the mock data */
+        setShowModal={setShowModal}
+        setSelectedPhoto={setSelectedPhoto}
+        addToFavPhotos={addToFavPhotos}
+        removeFromFavPhotos={removeFromFavPhotos}
+        favPhotos={state.favPhotos}
+        setPhotosByTopic={setPhotosByTopic} // Pass down the setPhotosByTopic function to the child component
       />
-     {state.showModal && 
-     <PhotoDetailsModal 
-      addToFavPhotos={addToFavPhotos} 
-      removeFromFavPhotos={removeFromFavPhotos} 
-      setShowModal={setShowModal} 
-      selectedPhoto={state.selectedPhoto}
-      favPhotos={state.favPhotos}
-      />} 
+      {state.showModal &&
+        <PhotoDetailsModal
+          addToFavPhotos={addToFavPhotos}
+          removeFromFavPhotos={removeFromFavPhotos}
+          setShowModal={setShowModal}
+          selectedPhoto={state.selectedPhoto}
+          favPhotos={state.favPhotos}
+        />}
     </div>
   );
 };

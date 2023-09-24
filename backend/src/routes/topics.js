@@ -12,7 +12,7 @@ module.exports = db => {
       response.json(topics);
     });
   });
-  
+
   router.get("/topics/photos/:id", (request, response) => {
     const protocol = request.protocol;
     const host = request.hostname;
