@@ -9,6 +9,7 @@ const ACTIONS = {
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
   SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC',
+  TOGGLE_SHOW_FAV_PHOTOS: 'TOGGLE_SHOW_FAV_PHOTOS',
 };
 
 
@@ -49,6 +50,11 @@ function reducer(state, action) {
         ...state,
         favPhotos: state.favPhotos.filter((item) => item.id !== action.payload.id)
       };
+    case ACTIONS.TOGGLE_SHOW_FAV_PHOTOS:
+      return {
+        ...state,
+        showFavPhotos: action.payload
+      };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -65,6 +71,7 @@ const useApplicationData = () => {
     showModal: false,
     selectedPhoto: {},
     favPhotos: [],
+    showFavPhotos: false,
   });
 
   // Getting data from the server
@@ -103,6 +110,10 @@ const useApplicationData = () => {
       .then(data => dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: data }));
   };
 
+  const toggleShowFavPhotos = (toggleTo) => {
+    dispatch ({type: ACTIONS.TOGGLE_SHOW_FAV_PHOTOS, payload: toggleTo});
+  };
+
 
   return {
     state,
@@ -111,6 +122,7 @@ const useApplicationData = () => {
     addToFavPhotos,
     removeFromFavPhotos,
     setPhotosByTopic,
+    toggleShowFavPhotos,
   };
 };
 

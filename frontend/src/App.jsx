@@ -4,6 +4,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 import './App.scss';
 
+
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
@@ -13,6 +14,7 @@ const App = () => {
     addToFavPhotos,
     removeFromFavPhotos,
     setPhotosByTopic,
+    toggleShowFavPhotos,
   } = useApplicationData();
 
 
@@ -27,6 +29,8 @@ const App = () => {
         removeFromFavPhotos={removeFromFavPhotos}
         favPhotos={state.favPhotos}
         setPhotosByTopic={setPhotosByTopic} // Pass down the setPhotosByTopic function to the child component
+        toggleShowFavPhotos={toggleShowFavPhotos}
+        showFavPhotos={state.showFavPhotos}
       />
       {state.showModal &&
         <PhotoDetailsModal
